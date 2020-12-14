@@ -1,11 +1,25 @@
-let chat = document.getElementById("chat");
-let text = document.getElementById("text");
-let name = document.getElementById("name");
-let button = document.getElementById("button");
+let reaction_button = document.getElementById("reaction-button");
+let form_text = document.getElementById("form-text");
+let send_text = document.getElementById("send_text");
+let i = 1;
+
+function show_reaction() {
+  form_text.innerHTML = '😀' + i;
+  i++;
+}
 
 function show_text() {
-   var line = text.value + "\n";
-   if (text.value !== "") {
-      chat.innerText = line + chat.innerText;
-   }
+  form_text.innerHTML = send_text.value
+}
+ 
+//以下未実装
+let chat_msg = {
+  text: '',
+  reaction: 0,
+  add_reaction: function(){
+    this.reaction++;
+  },
+  write_text: function(send_text){
+    this.text = send_text
+  }
 }

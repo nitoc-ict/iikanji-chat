@@ -1,25 +1,21 @@
+<!DOCTYPE html>
 <html>
+   <center>
    <head>
       <meta charset="utf-8" />
-      <title>Noa Chat</title>
+      <title>test</title>
    </head>
 
-   <body>
-      <center>
-         <h3>Noa Chat</h3>
-      <div>
-         <input placeholder="your name" id="name" type="text">
-      </div>
-      <div>
-         <input placeholder="say something" id="text" type="text">
-      </div>
-         <input value="send" id="sendbutton" type="button" onClick="show_text()">
-      <div>
-
-      </div>
-         <div id="chat"></div>
-      </center>
-   </body>
+   <div>
+      <input placeholder = "text" type="text" id="send_text">
+      <input value="send" type="button" id="send-button" onClick="show_text()">
+   </div>
+   
+   <input value = "😀" type="button" id="reaction-button" onClick="show_reaction()">
+   
+   <div id="form-text">
+   </div>
 
    <script src="./index.js"></script>
-</html>
+   </center>
+   </html>
