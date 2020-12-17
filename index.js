@@ -6,11 +6,6 @@ let i = 1;
 let j = 0;
 let reaction_dic = {}
 
-function show_reaction() {
-  form_text.innerHTML = '😀' + '[' + i + ']:';
-  i++;
-}
-
 function show_text() {
   chat_text.innerHTML = send_text.value;
 }
@@ -32,7 +27,7 @@ function add_msg(){
 
   //div内のリアクションinputの作成
   var new_reaction_input = document.createElement("input");
-  new_reaction_input.setAttribute("value", "😀");
+  new_reaction_input.setAttribute("value", "😀"+reaction_dic[j]);
   new_reaction_input.setAttribute("type", "button")
   new_reaction_input.setAttribute("id", j)
   new_reaction_input.setAttribute("onclick", "disabled = true; push_button(this.id)")
@@ -45,6 +40,15 @@ function add_msg(){
 }
 
 function push_button(id){
-  reaction_dic[id]++
-  
+  reaction_dic[id]++;
+  display_reaction_number(id);
+}
+
+function display_reaction_number(id){
+  var reaction_number = reaction_dic[id];
+  var reaction_button_id = document.getElementById(String(id));
+  reaction_button_id.value = "😀" + reaction_number;
+  console.log(reaction_button_id.value)
+  console.log(reaction_button_id)
+  console.log(reaction_button_id.value)
 }
