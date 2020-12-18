@@ -13,11 +13,11 @@ function show_text() {
 //チャットの追加
 function add_msg(){
   j++;
-  reaction_dic[j] = 0;
+  reaction_dic["reaction" + j] = 0;
   
   //挿入するdivの作成
   var new_div = document.createElement("div");
-  new_div.setAttribute("id", j)
+  new_div.setAttribute("id", "msg_div" + j);
   
   //div内のメッセージspanの作成
   var new_msg_span = document.createElement("span");
@@ -27,14 +27,14 @@ function add_msg(){
 
   //div内のリアクションinputの作成
   var new_reaction_input = document.createElement("input");
-  new_reaction_input.setAttribute("value", "😀"+reaction_dic[j]);
+  new_reaction_input.setAttribute("value", "😀"+reaction_dic["reaction" + j]);
   new_reaction_input.setAttribute("type", "button")
-  new_reaction_input.setAttribute("id", j)
+  new_reaction_input.setAttribute("id", "reaction" + j)
   new_reaction_input.setAttribute("onclick", "disabled = true; push_button(this.id)")
 
   //挿入
   form_text.insertBefore(new_div, form_text.firstChild);
-  target_div = document.getElementById(j)
+  target_div = document.getElementById("msg_div" + j)
   target_div.insertBefore(new_msg_span, target_div.firstChild);
   target_div.insertBefore(new_reaction_input ,target_div.firstChild)
 }
@@ -46,9 +46,6 @@ function push_button(id){
 
 function display_reaction_number(id){
   var reaction_number = reaction_dic[id];
-  var reaction_button_id = document.getElementById(String(id));
+  var reaction_button_id = document.getElementById(id);
   reaction_button_id.value = "😀" + reaction_number;
-  console.log(reaction_button_id.value)
-  console.log(reaction_button_id)
-  console.log(reaction_button_id.value)
 }
